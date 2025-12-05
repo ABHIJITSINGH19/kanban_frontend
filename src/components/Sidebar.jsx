@@ -65,7 +65,7 @@ export default function Sidebar({ isMobileOpen, setIsMobileOpen }) {
                 </div>
                 <div>
                   <h1 className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
-                    Alpha
+                    ABHI.
                   </h1>
                   <p className="text-xs text-slate-500 font-medium hidden sm:block">
                     Task Management
