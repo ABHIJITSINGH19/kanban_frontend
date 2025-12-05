@@ -8,11 +8,21 @@ export const loginUser = createAsyncThunk(
       const response = await api.post("/auth/login", credentials);
       return response.data;
     } catch (error) {
-      return rejectWithValue(
-        error.response?.data?.message ||
-          error.response?.data?.error ||
+      if (error.response) {
+        return rejectWithValue(
+          error.response?.data?.message ||
+            error.response?.data?.error ||
+            "Incorrect email or password. Please try again."
+        );
+      } else if (error.request) {
+        return rejectWithValue(
+          "Network error. Please check your connection and try again."
+        );
+      } else {
+        return rejectWithValue(
           "An error occurred during login. Please try again."
-      );
+        );
+      }
     }
   }
 );
